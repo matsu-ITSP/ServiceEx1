@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 Log.d(TAG, "onReceive: " + action);
+                Toast.makeText(getBaseContext(),"receive OK poi",Toast.LENGTH_SHORT).show();
                 if (action == null) return;
 
                 //Intent intent = new Intent(this, TestService3.class);
