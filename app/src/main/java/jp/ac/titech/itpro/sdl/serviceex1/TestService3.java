@@ -16,6 +16,7 @@ public class TestService3 extends IntentService {
     protected void onHandleIntent(Intent intent) {
         Log.d(TAG, "onHandleIntent in " + Thread.currentThread());
         Log.d(TAG, "myarg = " + intent.getStringExtra(EXTRA_MYARG));
+
         try {
             Thread.sleep(5000);
         }
@@ -28,6 +29,10 @@ public class TestService3 extends IntentService {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate in " + Thread.currentThread());
+        Intent answerIntent = new Intent();
+        answerIntent.setAction("MY_ACTION");
+        answerIntent.putExtra("MY_ACTION","MY_ACTION");
+        sendBroadcast(answerIntent);
     }
 
     @Override
